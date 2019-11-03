@@ -1,5 +1,8 @@
 import numpy as np
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+import cartopy.crs as ccrs
+from cartopy.io.img_tiles import OSM
 
 def read_poly(file):
     """
@@ -25,36 +28,7 @@ def read_multipoly(file):
     lines = multipoly.readlines()
     coordinates = []
     polygons = {}
-    group = []
-    groups = []
 
-    # Group by different polygons
-    for line in lines:
-        if line[0] == '#': # is comment
-            pass
-        elif line[0] == '' or line[0] == '\n': # is_dataset = False
-            groups.append(group)
-            group = []
-            pass
-        else:
-            if line[0] == '[':
-                line = line[2:-3].split('), (')
-                for coordinate in line:
-                    group.append(coordinate)
-            elif line[0] == '(':
-                group.append(line[1:-2])
-            else: # is_name
-                group.append(line[:-1])
-    
-    # Put groups into dict
-    for group in groups:
-        for coordinate in group[1:]:
-            coordinate = [float(i) for i in coordinate.split(', ')]
-        polygons[group[0]] = group[1:]
-    
-    return polygons
-
-    '''
     for line in lines:
         if line[0] == '#': # is_comment
             pass
@@ -76,7 +50,6 @@ def read_multipoly(file):
                     coordinates.append([float(i) for i in coordinate])
                 
     return polygons
-    '''
 
 
 def plot_polygons(polygons):
@@ -85,6 +58,17 @@ def plot_polygons(polygons):
     and values are arrays of the relevant polygons's coordinates,
     output a graph of those polygons
     """
+    for coordinate in polygons.values():
+        x = coordinate[:, 0]
+        y = coordinate[:, 1]
+        plt.plot(x, y)
     
+    plt.xlabel('easting')
+    plt.ylabel('northing')
+    plt.title('Edinburgh - natural neibourhoods')
+
+    return plt
 
 polygons = read_multipoly('natural_neighbourhoods.dat')
+plot = plot_polygons(polygons)
+plot.show()
