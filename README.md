@@ -22,8 +22,8 @@
 
 ## How to use
 
-1. Put the folder that contains this README file to your working directory
-2. Open a terminal in your working directory, and try the samples:
+1. Put the folder that contains this README file to your *working directory*
+2. Open a terminal in your *working directory*, and try the samples:
 
 ##### On Linux / MacOS
 

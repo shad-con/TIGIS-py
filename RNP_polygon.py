@@ -2,9 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-import cartopy.crs as ccrs
-from cartopy.io.img_tiles import OSM
-
 def read_poly(file):
     """
     Read a file contains the coordinates of a single polygon,
