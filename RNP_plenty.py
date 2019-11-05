@@ -38,6 +38,6 @@ def plot_plenty(array):
     return fig
 
 if __name__ == '__main__':
-    plenty_array = read_plenty("./data/plenty.data")
+    plenty_array = read_plenty("./ReadNPlot/data/plenty.data")
     plenty_plt = plot_plenty(plenty_array)
     plenty_plt.show()

@@ -61,23 +61,21 @@ def plot_polygons(polygons):
     and values are arrays of the relevant polygons's coordinates,
     output a graph of those polygons
     """
-    imagery = OSM()
-
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection=imagery.crs())
-    ax.set_extent([309000, 334000, 657500, 680000], ccrs.OSGB())
-    ax.add_image(imagery, 14)
+    ax = fig.add_subplot(111)
 
     for name, coordinate in polygons.items():
-        ax.add_patch(plt.Polygon(coordinate, label=name))
+        ax.add_patch(plt.Polygon(coordinate, fill=False, label=name))
     
     ax.set_title('Edinburgh - natural neibourhoods')
+    ax.set_xlim(309000, 334000) # ref: https://stackoverflow.com/questions/3777861/setting-y-axis-limit-in-matplotlib
+    ax.set_ylim(657500, 680000)
     ax.set_xlabel('easting')
     ax.set_ylabel('northing')
 
     return fig
 
 if __name__ == '__main__':
-    polygons = read_multipoly('./data/natural_neighbourhoods.dat')
+    polygons = read_multipoly('./ReadNPlot/data/natural_neighbourhoods.dat')
     plot = plot_polygons(polygons)
     plot.show()

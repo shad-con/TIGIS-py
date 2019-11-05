@@ -28,15 +28,21 @@
 ##### On Linux / MacOS
 
 ```bash
-python3 -i RNP_plenty.py # a sample of RNP_plenty module
-python3 -i RNP_polygon.py # a sample of RNP_polygon module
+python3 -i ./ReadNPlot/RNP_plenty.py # a sample of RNP_plenty module
+python3 -i ./ReadNPlot/RNP_polygon.py # a sample of RNP_polygon module
 ```
 
 ##### On Windows
 
 ```powershell
-python -i RNP_plenty.py # a sample of RNP_plenty module
-python -i RNP_polygon.py # a sample of RNP_polygon module
+python -i ./ReadNPlot/RNP_plenty.py # a sample of RNP_plenty module
+python -i ./ReadNPlot/RNP_polygon.py # a sample of RNP_polygon module
+```
+
+3. If you want to use this package in your python script, just simply put the following code in your script:
+
+```python
+import ReadNPlot
 ```
 
 ### Other information
