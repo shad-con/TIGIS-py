@@ -39,11 +39,15 @@ python -i RNP_plenty.py # a sample of RNP_plenty module
 python -i RNP_polygon.py # a sample of RNP_polygon module
 ```
 
+### Other information
+
+*natural_neighbourhoods.dat* in *data* folder is downloaded from City of [Edinburgh Council Mapping Portal](http://data.edinburghcouncilmaps.info/), under the license of [Open Government License v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+
 --------------------------------------------------
 
 #### Acknowledgement
 
-👍 Thank Dr Magnus Hagdorn for his great teaching.
+👍 Thank all the teaching staffs for their great teaching.
 
 🙏 Special thanks to H. Jia, Y-H Kan, F. Lu, Y. Zeng and Z. Zhu for giving advice to this package.
 
